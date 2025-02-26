@@ -1,141 +1,105 @@
+# AI Code - 生成代码
 
+ai-code 是一个创新工具，利用人工智能生成用户界面（UI）组件的代码，并提供实时预览功能。这对于开发者或设计师快速原型设计非常有用，让他们能更高效地创建和测试 UI 元素，而无需手动编写大量代码。
 
-当下，各行各业都在追逐“AI+”的浪潮，而品牌视觉更是一个企业不可忽视的“形象门面”。Logo 设计往往既费时又费钱，一不小心就耗费了大量的人力物力。有没有一种方法能快速做出专业、独特且符合品牌定位的 Logo 呢？今天，给大家带来一个开源好项目——**AI Logo**！借助 AI 强大的设计能力，帮你**一键生成品牌 Logo**，让品牌形象打造既轻松又高效。
+## 项目预览
 
----
+![login](./public/ai-code.gif)
 
-## 一、为什么 Logo 如此重要？
+## 🚀 主要功能
 
-在浩瀚的市场竞争中，一个具有辨识度的 Logo 能让你的品牌从数以千计的竞争者中脱颖而出。优秀的 Logo 不仅仅是一张“名片”，更能传递企业文化和态度，给用户留下深刻印象。
-
-但传统的 Logo 设计流程通常非常漫长，需要和设计师不断沟通，尝试多次修改与调整。**AI Logo** 直接用 AI 的力量，快速产出多款高质量 Logo，让你在最短时间内找到品牌专属的视觉符号。
-
----
-
-## 二、AI Logo 带来的价值
-
-1. **AI 一键生成**  
-   - 只需输入品牌名称、关键词，或者选择心仪的风格，即可快速生成多组创意 Logo。  
-   - 智能分析企业行业和理念，提供贴合品牌气质的设计方案。
-
-2. **多样化风格**  
-   - 现代、极简、复古、科技、手绘……多种风格库随意选，满足你想要的品牌调性。  
-   - 在此基础上，用户可进一步微调，打造独一无二的视觉特色。
-
-3. **高度自定义**  
-   - 颜色、字体、排版、图标，全都可以自定义调整。  
-   - 提供**SVG、PNG** 矢量输出，适配各种宣传与广告场景。
-
-4. **低成本、高效率**  
-   - 传统方式可能花费数天到数周的设计周期，AI 一键生成只需数秒。  
-   - 对初创公司、个人开发者或追求效率的团队来说，不仅省钱更省时。
-
-5. **全球化、多语言支持**  
-   - 支持中英文切换，适配海内外市场，同时拥有光暗模式切换，适配不同用户习惯。  
-   - 响应式设计，让你的 Logo 生成器在 PC、手机、平板多端畅享高质量体验。
+- **AI 驱动的代码生成**（用户用自然语言描述想要的 UI 组件，ai-code 会生成相应的代码，支持多种 AI 模型（如 Anthropic、Google、OpenAI 等），用户可根据需要选择。
+- **实时 UI 预览**：生成代码后，工具会立即渲染，展示组件的外观和功能，帮助用户快速验证设计。
+- **用户体验**：界面现代化，支持深色模式和响应式设计，适用于桌面端、移动端和平板设备。使用 Supabase 提供用户登录和数据存储功能。
 
 ---
 
-## 三、项目核心亮点
+## 🛠️ 技术栈
 
-### 1. 基于 Next.js 打造的前端
+使用的关键技术及其作用的对比：
 
-- **SSR & SSG** 让页面打开更快，SEO 友好度更高。  
-- **Tailwind CSS** + **Zustand**，让开发者快速实现现代化 UI 设计与轻量级状态管理。
+| **技术类别** | **依赖项示例**                    | **作用**                  |
+| ------------ | --------------------------------- | ------------------------- |
+| 前端框架     | Next.js (15.1.2)                  | SSR/SSG，提升性能和 SEO   |
+| 样式工具     | Tailwind CSS, tailwindcss-animate | 快速构建现代 UI，动画支持 |
+| AI 集成      | @ai-sdk/anthropic, ai             | 支持多种 AI 模型生成代码  |
+| 代码解释     | @e2b/code-interpreter/代码解释器  | 实时解释和渲染生成的代码  |
+| 用户管理     | Supabase, @upstash/ratelimit      | 认证、数据存储和速率限制  |
+| UI 组件库    | Radix UI 系列                     | 可访问性强的交互组件      |
 
-### 2. 强大的后端支撑
 
-- **Supabase**：用户登录注册与数据存储都可轻松搞定，实现 Logo 收藏与历史记录管理。  
-- **AI 设计引擎**：集成 **Stable Diffusion、DeepAI** 等前沿模型，Logo 生成质量经得起考验。
 
-### 3. 完善的支付系统
+## 📥 安装 & 部署
 
-- **Stripe** 订阅或积分兑换，方便多元变现模式。  
-- 对于想要打造 SaaS 业务的团队来说，是落地变现的高效方案。
+### **快速启动**
 
-### 4. 全流程 DevOps 支持
+```bash
+# 1. 克隆代码仓库
+git clone https://github.com/geallenboy/ai-code.git
+cd ai-code
 
-- **Vercel** 一键部署，轻松上云。  
-- **Docker**（可选）容器化部署，无论本地还是服务器，安装部署都变得更为简单。
+# 2. 安装依赖
+pnpm install
+# 或者 yarn
+yarn install
+
+# 3. 配置环境变量
+cp .env.example .env
+# 配置相关参数
+
+# 4. 启动开发服务器
+pnpm run dev
+# 或 yarn dev
+
+# 5. 访问本地应用
+http://localhost:3000
+```
 
 ---
 
-## 四、怎么开始使用？
+## 🤝 贡献指南
 
-1. **获取源代码**  
-   前往 GitHub 仓库：[AI Logo GitHub](https://github.com/geallenboy/ai-logo)  
+### **如何贡献**
+
+1. **Fork 本项目** 并创建新分支：
    ```bash
-   git clone https://github.com/geallenboy/ai-logo.git
-   cd ai-logo
+   git checkout -b feature-branch-name
    ```
-
-2. **安装依赖并配置**  
+2. **提交你的改动**：
    ```bash
-   pnpm install
-   cp .env.example .env
-   # 填写 Supabase 和 Stripe 等相关环境变量
+   git commit -m "✨ 新增 Code 生成优化"
    ```
-
-3. **启动开发环境**  
+3. **推送代码**：
    ```bash
-   pnpm run dev
-   # 打开 http://localhost:3000 即可访问
+   git push origin feature-branch-name
    ```
-
-4. **生成你的第一个 AI Logo**  
-   - 注册或登录账号  
-   - 输入品牌名称及关键词  
-   - 选择相应风格  
-   - 一键生成专属 Logo！
+4. **创建 Pull Request**，我们会尽快审核！🎉
 
 ---
 
-## 五、适合谁来使用？
+## 📄 许可协议
 
-- **初创公司 & 自主创业者**：无需大笔预算请设计师，快速产出第一版 Logo。  
-- **自由职业者 & 设计师**：将 AI 生成的多种设计方案，快速迭代出最佳创意。  
-- **开发者 & SaaS 产品**：通过整合到自己的项目中，为用户提供增值的 Logo 生成服务。  
-- **高校 & 学生项目**：开源可控，适合学习或课题研究，快速搭建从前端到后端的完整项目。
+本项目基于 **MIT 许可协议**，允许自由使用、修改和分发。  
+详情请查看 [LICENSE](LICENSE) 文件。
 
 ---
 
-## 六、如何参与贡献？
+## 🌍 联系我
 
-**AI Logo** 是一个开源项目，我们非常欢迎社区开发者、设计师一起加入，共同迭代。  
-- **Fork 仓库** 并新建分支：  
-  ```bash
-  git checkout -b feature-branch-name
-  ```
-- **提交并推送改动**：  
-  ```bash
-  git commit -m "✨ 新增 Logo 生成优化"
-  git push origin feature-branch-name
-  ```
-- **发起 Pull Request**，我们会第一时间审核合并，期待你的创意和贡献！
+如果你对 AI Code项目 感兴趣，或者希望合作，请随时联系我！💬
+
+📧 **Email**：[gejialun88@gmail.com](mailto:gejialun88@gmail.com)  
+🐦 **Twitter**：[gejialun88](https://x.com/gejialun88)  
+🌐 **个人网站**：[我的网站](https://gegarron.com)  
+💬 **微信**：gegarron
 
 ---
 
-## 七、更多联系与支持
+## 🌟 Star & Fork 🌟
 
-- **官网预览**：[AI Logo 预览地址](https://ailogo.nextjsbase.site)  
-- **邮箱**： [gejialun88@gmail.com](mailto:gejialun88@gmail.com)  
-- **Twitter**： [@gejialun88](https://x.com/gejialun88)  
-- **个人网站**：[gegarron.com](https://gegarron.com)  
-- **微信**：gegarron
-
-如果你觉得项目有趣或对你有帮助，记得 **Star** 支持一下。欢迎扫码关注或添加好友，交流更多前沿的 AI 技术与项目经验！
+如果你喜欢这个项目，请 **Star ⭐ & Fork**，让更多人发现它！  
+🔗 **GitHub Repo**：[AI Code](https://github.com/geallenboy/ai-code)
 
 ---
 
-## 八、写在最后
-
-在竞争激烈的商业环境中，**品牌形象**往往是脱颖而出的关键。**AI Logo** 通过整合 AI 生成与自定义设计，以迅捷、高效、低成本的方式，把专业级 Logo 设计带到每个人面前。
-
-不管你是 **需要快速上线产品**、**打造品牌**，还是想在 **AI + 设计** 的领域大展拳脚，**AI Logo** 都是一个不容错过的开源利器。  
-快来 **Fork & Star**，开启你的 AI 设计之旅吧！让我们一起拥抱智能化的时代，用创意点亮品牌的未来！ 
-
-**— END —**  
-
-> **AI Logo**：借助 AI 之力，为品牌塑造独一无二的标志！  
-> [GitHub 仓库](https://github.com/geallenboy/ai-logo)  
-> [项目预览](https://ailogo.nextjsbase.site) 立即体验！  
+🔥 **立即 Fork & 开发，开启你的 AI 设计之旅！** 🚀
